@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TheReview</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_trend">Trend</string>
+    <string name="tab_subscription">Subscription</string>
+    <string name="tab_profile">Profile</string>
+
+</resources>

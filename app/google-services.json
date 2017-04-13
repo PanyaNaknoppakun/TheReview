@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "600709969341",
+    "firebase_url": "https://thereview-ccf01.firebaseio.com",
+    "project_id": "thereview-ccf01",
+    "storage_bucket": "thereview-ccf01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600709969341:android:dcc2b7936cf02807",
+        "android_client_info": {
+          "package_name": "com.panya.thereview.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600709969341-jl49koquch7dqdqqgeg04dc3k1436g4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQD-rhlBzjrphE1rGYJm3-wFSIo1BnPnU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

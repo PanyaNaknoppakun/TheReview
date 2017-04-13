@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="HomeTab">
+        <item>@string/tab_home</item>
+        <item>@string/tab_trend</item>
+        <item>@string/tab_subscription</item>
+        <item>@string/tab_profile</item>
+    </string-array>
+</resources>
