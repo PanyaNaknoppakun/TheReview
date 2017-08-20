@@ -1,8 +1,9 @@
-package com.panya.thereview.fragments;
+package com.panya.thereview.views.fragments;
 
 import android.os.Bundle;
 
 import com.panya.thereview.R;
+import com.panya.thereview.common.fragments.TheReviewBaseFragment;
 
 /**
  * Created by PanyaN on 4/8/2017 AD.

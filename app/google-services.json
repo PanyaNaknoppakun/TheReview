@@ -10,10 +10,26 @@
       "client_info": {
         "mobilesdk_app_id": "1:600709969341:android:dcc2b7936cf02807",
         "android_client_info": {
-          "package_name": "com.panya.thereview.debug"
+          "package_name": "com.panya.thereview"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "600709969341-m3gnj8b5gnpn4hjqe7r17f43hbup4bsj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.panya.thereview",
+            "certificate_hash": "9e2741b4ae53c2212ee9a6081ffecad199ab71d2"
+          }
+        },
+        {
+          "client_id": "600709969341-6sof7nj7up374089ch038634m39pfnhm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.panya.thereview",
+            "certificate_hash": "02130797b8d0e1709d287b34c50dd15c0ac085b0"
+          }
+        },
         {
           "client_id": "600709969341-jl49koquch7dqdqqgeg04dc3k1436g4n.apps.googleusercontent.com",
           "client_type": 3
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600709969341-jl49koquch7dqdqqgeg04dc3k1436g4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

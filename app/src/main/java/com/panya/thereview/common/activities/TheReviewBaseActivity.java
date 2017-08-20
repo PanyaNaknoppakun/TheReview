@@ -1,19 +1,20 @@
-package com.panya.thereview.activities;
+package com.panya.thereview.common.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.karumi.rosie.view.PresenterLifeCycleLinker;
-import com.karumi.rosie.view.loading.RosiePresenterWithLoading;
 import com.panya.thereview.R;
 import com.panya.thereview.app.TheReviewApplication;
-import com.panya.thereview.presenter.PresenterComponent;
+import com.panya.thereview.common.view.BaseView;
+import com.panya.thereview.model.Uber;
+import com.trello.rxlifecycle.ActivityLifecycleProvider;
+import com.trello.rxlifecycle.navi.NaviLifecycle;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,14 +23,15 @@ import butterknife.ButterKnife;
  * Created by PanyaN on 4/7/2017 AD.
  */
 
-public abstract class TheReviewBaseActivity extends AppCompatActivity implements RosiePresenterWithLoading.View {
-
-    private final PresenterLifeCycleLinker presenterLifeCycleLinker = new PresenterLifeCycleLinker();
+public abstract class TheReviewBaseActivity extends TheReviewAppCompatActivity implements BaseView {
 
     @Nullable
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    private ProgressDialog progressDialog;
+
+    private final ActivityLifecycleProvider provider = NaviLifecycle.createActivityLifecycleProvider(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,18 +50,13 @@ public abstract class TheReviewBaseActivity extends AppCompatActivity implements
             }
         }
 
-        onInjectComponent(getApp().getPresenterComponent());
-
         onPreparePresenter();
-        presenterLifeCycleLinker.initializeLifeCycle(this, this);
     }
 
     @LayoutRes
     protected abstract int getActivityLayout();
 
     protected void setupSupportActionBar(@NonNull ActionBar actionBar) {}
-
-    protected void onInjectComponent(@NonNull PresenterComponent pc) {}
 
     protected void onPreparePresenter() {}
 
@@ -78,29 +75,32 @@ public abstract class TheReviewBaseActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenterLifeCycleLinker.updatePresenters(this);
+    public ActivityLifecycleProvider getProvider() {
+        return provider;
     }
 
     @Override
-    public void showLoading() {
+    public Uber getUber() {
+        return new Uber(getIntent());
     }
 
     @Override
-    public void hideLoading() {
+    public void showProgressDialog() {
+        if (progressDialog != null && !progressDialog.isShowing()) {
+            progressDialog.show();
+        } else if (progressDialog == null) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle(getString(R.string.general_please_wait));
+            progressDialog.setMessage(getString(R.string.general_processing));
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        presenterLifeCycleLinker.pausePresenters();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenterLifeCycleLinker.destroyPresenters();
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 }

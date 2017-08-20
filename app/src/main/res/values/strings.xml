@@ -6,4 +6,6 @@
     <string name="tab_subscription">Subscription</string>
     <string name="tab_profile">Profile</string>
 
+    <string name="general_processing">Processing...</string>
+    <string name="general_please_wait">Please wait</string>
 </resources>

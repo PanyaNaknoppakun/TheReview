@@ -1,4 +1,4 @@
-package com.panya.thereview.activities;
+package com.panya.thereview.views.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,10 +7,14 @@ import android.support.v7.widget.Toolbar;
 
 import com.panya.thereview.R;
 import com.panya.thereview.adapter.MainTabAdapter;
+import com.panya.thereview.common.activities.TheReviewBaseActivity;
+import com.panya.thereview.common.rxlifecycle.ActivityLifecycleBinder;
+import com.panya.thereview.presenter.MainPresenter;
+import com.panya.thereview.views.views.MainView;
 
 import butterknife.BindView;
 
-public class MainActivity extends TheReviewBaseActivity {
+public class MainActivity extends TheReviewBaseActivity implements MainView {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -19,11 +23,13 @@ public class MainActivity extends TheReviewBaseActivity {
     @BindView(R.id.tabs)
     TabLayout tabs;
 
+    MainPresenter presenter;
     MainTabAdapter mainTabAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        presenter = new MainPresenter(this, new ActivityLifecycleBinder(getProvider()));
         initView();
     }
 

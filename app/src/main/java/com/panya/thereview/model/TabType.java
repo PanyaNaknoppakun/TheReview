@@ -3,17 +3,13 @@ package com.panya.thereview.model;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
 
 import com.panya.thereview.R;
-import com.panya.thereview.activities.TheReviewBaseActivity;
-import com.panya.thereview.app.AppModule;
-import com.panya.thereview.app.TheReviewApplication;
-import com.panya.thereview.fragments.HomeFragment;
-import com.panya.thereview.fragments.ProfileFragment;
-import com.panya.thereview.fragments.SubscriptionFragment;
-import com.panya.thereview.fragments.TheReviewBaseFragment;
-import com.panya.thereview.fragments.TrendFragment;
+import com.panya.thereview.common.fragments.TheReviewBaseFragment;
+import com.panya.thereview.views.fragments.HomeFragment;
+import com.panya.thereview.views.fragments.ProfileFragment;
+import com.panya.thereview.views.fragments.SubscriptionFragment;
+import com.panya.thereview.views.fragments.TrendFragment;
 
 import java.util.Arrays;
 import java.util.List;

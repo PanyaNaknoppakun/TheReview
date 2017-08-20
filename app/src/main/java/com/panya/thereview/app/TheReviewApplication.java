@@ -3,25 +3,29 @@ package com.panya.thereview.app;
 import android.app.Application;
 
 
-import com.panya.thereview.presenter.DaggerPresenterComponent;
-import com.panya.thereview.presenter.PresenterComponent;
-
-
 /**
  * Created by PanyaN on 4/7/2017 AD.
  */
 
 public class TheReviewApplication extends Application {
 
-    private AppComponent appComponent;
-    private PresenterComponent presenterComponent;
-
+    private static TheReviewApplication INSTANCE;
 
     @Override
     public void onCreate() {
         super.onCreate();
         initFabric();
-        initDagger();
+        INSTANCE = initApp();
+
+    }
+
+    public static TheReviewApplication get() {
+        return INSTANCE;
+    }
+
+
+    protected TheReviewApplication initApp() {
+        return this;
     }
 
     private void initFabric() {
@@ -42,19 +46,4 @@ public class TheReviewApplication extends Application {
 //        Crashlytics.setString(CrashlyticsKey.GIT_SHA, BuildConfig.GIT_SHA);
     }
 
-    private void initDagger() {
-        appComponent = DaggerAppComponent.builder()
-                .build();
-        presenterComponent = DaggerPresenterComponent.builder()
-                .appModule(new AppModule(this))
-                .build();
-    }
-
-    public AppComponent getAppComponent() {
-        return appComponent;
-    }
-
-    public PresenterComponent getPresenterComponent() {
-        return presenterComponent;
-    }
 }

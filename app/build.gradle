@@ -8,13 +8,13 @@ def getAppId = { ->
 }
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
     defaultConfig {
         multiDexEnabled = true
         applicationId getAppId()
-        minSdkVersion 15
-        targetSdkVersion 24
+        minSdkVersion 16
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,8 +25,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix " DEBUG"
+//            applicationIdSuffix ".debug"
+//            versionNameSuffix " DEBUG"
         }
     }
 
@@ -58,18 +58,14 @@ dependencies {
 
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
-    compile 'com.google.android.gms:play-services-auth:10.2.1'
+
+    compile 'com.google.android.gms:play-services-auth:11.0.2'
 
     compile 'com.google.code.gson:gson:2.7'
-    compile 'com.google.dagger:dagger:2.2'
-    apt 'com.google.dagger:dagger-compiler:2.2'
-    compile 'com.google.firebase:firebase-core:10.2.1'
-    compile 'com.google.firebase:firebase-database:10.2.1'
-    compile 'com.google.firebase:firebase-auth:10.2.1'
+    compile 'com.google.firebase:firebase-core:11.0.2'
+    compile 'com.google.firebase:firebase-database:11.0.2'
+    compile 'com.google.firebase:firebase-auth:11.0.2'
     compile 'com.google.guava:guava:20.0'
-
-//    compile 'com.jakewharton:butterknife:8.5.1'
-    //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
@@ -79,16 +75,30 @@ dependencies {
     compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
     compile 'com.jakewharton.timber:timber:4.1.2'
 
-    compile('com.karumi.rosie:rosie:2.1.0') {
-        exclude group: 'com.squareup.dagger', module:'dagger'
-        exclude group: 'com.squareup.dagger', module:'dagger-compiler'
-    }
-
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.trello:rxlifecycle-navi:0.6.1'
+
+    // Firebase UI
+    // Used in FirebaseUIActivity. The FirebaseUI-Android library has a minSdk level of 16
+    // so this library is only included in the minSdkJellybean variant.
+//    minSdkJellybeanCompile 'com.firebaseui:firebase-ui-auth:1.2.0'
+//
+//    // Facebook Android SDK (only required for Facebook Login)
+//    // Used in FacebookLoginActivity. This is only compiled into the minSdkJellybean variant of this
+//    // app. You can build a 'minSdkGingerbread' variant to test on devices with 9 <= SDK <= 15.
+//    minSdkJellybeanCompile 'com.facebook.android:facebook-android-sdk:4.9.0'
+//    minSdkJellybeanCompile 'com.android.support:customtabs:25.3.1'
+
+    // Twitter Android SDK (only required for Twitter Login)
+//    compile('com.twitter.sdk.android:twitter-core:1.6.6@aar') {
+//        transitive = true
+//    }
+//    compile('com.twitter.sdk.android:twitter:1.13.1@aar') {
+//        transitive = true
+//    }
 
 }
 
