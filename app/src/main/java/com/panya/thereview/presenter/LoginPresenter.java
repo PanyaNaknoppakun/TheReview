@@ -44,7 +44,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     public void onSignInComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
-            getView().goToMainPage();
+//            getView().goToMainPage();
+            getView().showToast("Login Completed");
         } else {
             Log.w(TAG, "signInWithCredential", task.getException());
             getView().showToast("Authentication failed.");
